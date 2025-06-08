@@ -1,12 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { Pool } = require('pg');
+require('dotenv').config();
+
 
 const app = express();
 app.use(bodyParser.json());
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || 'postgresql://bitespeed_test_db_user:f5bCAV1MhZyZeFWiDrDCNilxnwHO7G5h@dpg-d123h2mmcj7s73eudr60-a.singapore-postgres.render.com/bitespeed_test_db', 
+  connectionString: process.env.DATABASE_URL, 
   ssl: {
     rejectUnauthorized: false,
   },
